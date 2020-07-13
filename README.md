@@ -14,6 +14,35 @@ Usually for the best reaction time, you will use the LAN IP on your watch, and t
 
 To maximise the compatibility between devices, I started the project on a web app. This is fast and a convinient way to put things in place.
 
+## Start the program
+
+#### Windows
+On Windows you can use the easy way.
+
+Download the program in the release section, to be sure, put the program in is own folder
+and double click on it, you will see your IP and Port to enter in the wearable app.
+
+Then you can reduce it. (not close it !)
+
+That's it.
+
+If you have python3+ installed you can launch the program in a Powershell
+by typing : 
+
+```
+PS > C:\Users\username\Downloads\heartbeat>python main.py [port]
+``` 
+#### Linux
+
+You can start with : 
+```
+user@localhost~/Downloads/heartbeat$ python3 main.py [port]
+```
+
+#### MacOS
+
+Sorry, I ave no clue. Something similar to Linux ?
+
 ## Bugs ? How do I report one ?
 
 For now, none. If you found one, please use the issue section.
