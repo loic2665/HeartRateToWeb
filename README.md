@@ -41,7 +41,7 @@ user@localhost~/Downloads/heartbeat$ python3 main.py [port]
 
 #### MacOS
 
-Sorry, I ave no clue. Something similar to Linux ?
+Sorry, I have no clue. Something similar to Linux ?
 
 ## Bugs ? How do I report one ?
 
