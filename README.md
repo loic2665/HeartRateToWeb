@@ -83,6 +83,17 @@ Well it's complicated, because I don't own thhese watches. I have no clue if you
 You can find release in the release section. There are none for now.
 I will wait the watch app to be released first.
 
+## Build an exe
+
+For windows users you can build the script with this command
+
+```
+pyinstaller --onefile main.py --name heartbeatreceiver-build
+```
+
+Then go to the `dist` folder, and run the exe file. If you want to use the `/obs` endpoint, please make sure that the `obs.html` file are in the 
+same folder, and your `js` and `css` folders too if you want to have more custom style.
+
 ## Tutorials
 
 ### OBS
