@@ -1,0 +1,36 @@
+
+progress{
+	width: 1200px;
+	height: 50px;
+}
+.text{
+	color: #acacac;
+	font-family: Calibri, sans-serif;
+}
+#HR_NUMBER, #HR_BPM_WORD{
+	font-size: 80px;
+}
+#HR_LAST_UPDATE{
+	font-size: 50px;
+}
+#HR_STATE{
+	font-size: 60px;
+}
+
+progress {
+	border: 0;
+	background: #eee;
+	border-radius: 100px;
+	appearance: none;
+}
+
+progress::-webkit-progress-bar {
+	background: #eee;
+	border-radius: 100px;
+}
+
+progress::-webkit-progress-value {
+	border-radius: 100px 0 0 100px;
+	/*background-color: #d93232;*/
+	background-color: green;
+}

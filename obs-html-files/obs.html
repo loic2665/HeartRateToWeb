@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title></title>
+</head>
+<body>
+
+<div class="text">
+    <span id="HR_NUMBER">000</span> - <span id="HR_BPM_WORD">bpm</span> -
+    <span id="HR_LAST_UPDATE">00:00:00</span> - <span id="HR_STATE"></span> - <span>loic2665</span>
+</div>
+<div>
+		<progress id="HR_PROGRESS" value="50" max="180"></progress>
+</div>
+
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+	<script>
+
+        function updateTextStyle(result) {
+
+            if (result < 100) {
+                result = "0" + result;
+            }
+            $("#HR_NUMBER").text(result);
+
+
+            $("#HR_LAST_UPDATE").text(new Date().toLocaleTimeString());
+
+            var STATUS = "";
+
+            if(result <= 0){
+                STATUS = "Problème de lecture ?";
+            }else if(result > 0 && result <= 65){
+                STATUS = "Boh, relax !";
+            }else if(result > 65 && result <= 80){
+                STATUS = "On est bien !";
+            }else if(result > 80 && result <= 90){
+                STATUS = "On bouge un peu... !";
+            }else if(result > 90 && result <= 100){
+                STATUS = "On bouge !";
+            }else if(result > 100 && result <= 110){
+                STATUS = "On bouge bien là !";
+            }else if(result > 110 && result <= 130){
+                STATUS = "On bouge bien fort là !";
+            }else if(result > 130 && result <= 140){
+                STATUS = "Wow ! Sympa l'activité !";
+            }else if(result > 140 && result <= 160){
+                STATUS = "Ca commence à faire beaucoup là...";
+            }else if(result > 160 && result <= 180){
+                STATUS = "Ouch, pas bon signe ça...";
+            }else{
+                STATUS = "Appellez une ambulance svp";
+            }
+
+            $("#HR_STATE").text(STATUS);
+
+        }
+
+		function updateProgessBar(result){
+
+            updateTextStyle(result);
+            $("#HR_PROGRESS").val(result);
+
+		}
+
+		function getHR(){
+
+			$.ajax({
+				type: "GET",
+                crossDomain: true,
+				url: "http://localhost:6547/hr",
+				success: updateProgessBar,
+                async: false
+			});
+		}
+
+		$(document).ready(function(){
+
+			setInterval(getHR, 1000);
+
+		});
+
+	</script>
+
+</body>
+</html>
