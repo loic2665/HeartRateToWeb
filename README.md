@@ -96,6 +96,10 @@ same folder, and your `js` and `css` folders too if you want to have more custom
 
 ## Tutorials
 
+### Youtube video
+
+https://youtu.be/-LpL4qPggFM
+
 ### OBS
 
 There is multiple way to use the heartbeat on OBS, you can choose to read directly from the file, from the heartbeat endpoint 
