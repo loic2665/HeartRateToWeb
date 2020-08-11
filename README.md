@@ -63,12 +63,13 @@ and it works fine.
 Now for the othher watches : 
 
  - Samsung Galaxy Watch : Yes.
- - Samsung Galaxy Watch Active : must be compatible
- - Samsung Galaxy Watch Active 2 : same as above
+ - Samsung Galaxy Watch Active : Yes. (confirmed by others)
+ - Samsung Galaxy Watch Active 2 : Yes. (confirmed by others)
  - Samsung Gear Sport : Not sure, but maybe.
  - Samsung Gear S3 : Must be compatible too.
  - Samsung Gear S2 : Must be compatible too.
  - Samsung Gear S : I don't know at all.
+ - Samsung Galaxy Fit(e) : Since there is no app store, no.
  - Watches before this is likely to be too old.
  
 Now, watches with the Tizen Plaform version 2.3.2 and + 
