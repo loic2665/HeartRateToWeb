@@ -79,6 +79,11 @@ is supposed to be compatible.
 
 Well it's complicated, because I don't own thhese watches. I have no clue if you can create your own app like Samsung.
 
+## Todo
+
+ - Add a auto stop feature when the watch is not connected anymore.
+ - Save the last valid IP to avoid re-entering it after exiting the app.
+
 ## Releases
 
 You can find release in the release section. There are none for now.
