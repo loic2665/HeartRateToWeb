@@ -16,7 +16,7 @@
 // default values
 #define address_default "192.168.1.139"
 #define port_default 6547
-#define interval_default 2500
+#define interval_default 3000
 #define active_default 1
 
 #include "heart2web.h"

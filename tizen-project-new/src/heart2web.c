@@ -434,7 +434,7 @@ end_monitoring_complete(void *data)
 	}
 	error = sensor_listener_unset_event_cb(ui->ControlData.listener);
 	if (error != SENSOR_ERROR_NONE) {
-		dlog_print(DLOG_ERROR, LOG_TAG, "sensor_listener_unset_event_cb error: %d", error);
+		dlog_print(DLOG_ERROR, LOG_TAG, "heart2web_key sensor_listener_unset_event_cb error: %d", error);
 	}
 	error = sensor_listener_stop(ui->ControlData.listener);
 	if (error != 0) dlog_print(DLOG_ERROR, LOG_TAG, "heart2web_key sensor_listener_stop error: %d", error);
@@ -443,6 +443,7 @@ end_monitoring_complete(void *data)
 	curl_easy_cleanup(ui->ControlData.curl);
 	connection_unset_proxy_address_changed_cb(ui->ControlData.connection);
 	connection_destroy(ui->ControlData.connection);
+	dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key end_monitoring_complete");
 }
 
 static void
@@ -509,14 +510,15 @@ resolve_app_status(void *data)
 	    curl_err = curl_easy_perform(ui->ControlData.curl);
 	    /* Check for errors */
 	    if(curl_err != CURLE_OK) {
-	    	dlog_print(DLOG_WARN, LOG_TAG, "heart2web_curl_error: %d", curl_err);
+	    	dlog_print(DLOG_WARN, LOG_TAG, "heart2web_key curl_error: %d", curl_err);
 	    }
 	}
 
 	if (ui->ControlData.active){
+		dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key ECORE_CALLBACK_RENEW");
 		return ECORE_CALLBACK_RENEW;
 	} else {
-		end_monitoring_complete(ui);
+		dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key ECORE_CALLBACK_CANCEL");
 		return ECORE_CALLBACK_CANCEL;
 	}
 }
@@ -532,7 +534,6 @@ btn_active_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	if(ui->ControlData.active){
 		ui->ControlData.active = false;
 		end_monitoring_complete(ui);
-		return;
 	} else {
 		error = device_power_request_lock(POWER_LOCK_CPU, 0);
 		if (error != DEVICE_ERROR_NONE){
@@ -562,15 +563,13 @@ btn_active_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		    return;
 		}
 		int min_interval = 0;
-		double interval_seconds = 0.5;
+		double interval_seconds = interval_default / 1000;
 		error = sensor_get_min_interval(sensor, &min_interval);
 		if (ui->ControlData.interval < min_interval) ui->ControlData.interval = min_interval;
 		interval_seconds = ui->ControlData.interval / 1000; // get seconds version of ms
 		if (interval_seconds < 0.01) interval_seconds = 0.01; // no less than 100 ms or 0.1 seconds
 		if (error != SENSOR_ERROR_NONE) {
 			dlog_print(DLOG_ERROR, LOG_TAG, "heart2web_key sensor_get_min_interval: %d", error);
-		} else {
-			dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key sensor_get_min_interval: min interval %f", interval_seconds);
 		}
 		error = sensor_listener_set_event_cb(ui->ControlData.listener, ui->ControlData.interval, on_sensor_event, ui);
 		if (error != SENSOR_ERROR_NONE) {
@@ -609,7 +608,10 @@ btn_active_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		    stop_monitoring(9, error, ui);
 		    return;
 		}
-
+		dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key sensor_get_min_interval: min "
+				"interval seconds %f", interval_seconds);
+		dlog_print(DLOG_INFO, LOG_TAG, "heart2web_key sensor_get_min_interval: min "
+				"interval milliseconds %d", ui->ControlData.interval);
 		ui->ControlData.active = true;
 		elm_object_text_set(ui->ActiveButton,i18n_get_text("active"));
 		evas_object_show(ui->ActiveButton);
