@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="com.bitstobreath.heart2web" version="1.0.1">
+    <author email="names.a93@use.startmail.com" href="https://bitstobreath.com">Austin Hogan</author>
+    <description>Send heart rate to a custom machine on the local network at specified intervals.</description>
+    <profile name="wearable"/>
+    <ui-application appid="com.bitstobreath.heart2web" exec="heart2web" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>heart2web</label>
+        <icon>heart2web.png</icon>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/healthinfo</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+        <privilege>http://tizen.org/privilege/display</privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/network.internet">true</feature>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor">true</feature>
+</manifest>
