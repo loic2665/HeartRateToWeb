@@ -1,0 +1,11 @@
+APPNAME = heart2web
+
+type = app
+profile = wearable-4.0
+
+USER_SRCS = src/heart2web.c
+USER_DEFS =
+USER_INC_DIRS = inc
+USER_OBJS =
+USER_LIBS =
+USER_EDCS =
