@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="com.bitstobreath.heart2web" version="1.0.1">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="com.bitstobreath.heart2web" version="1.0.1">
     <author email="names.a93@use.startmail.com" href="https://bitstobreath.com">Austin Hogan</author>
     <description>Send heart rate to a custom machine on the local network at specified intervals.</description>
     <profile name="wearable"/>
