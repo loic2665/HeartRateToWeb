@@ -16,3 +16,4 @@
 *.tmp
 *~
 res/edje/*.edj
+/SA_Report/
