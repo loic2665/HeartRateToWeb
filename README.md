@@ -82,7 +82,6 @@ Well it's complicated, because I don't own thhese watches. I have no clue if you
 ## Todo
 
  - Add a auto stop feature when the watch is not connected anymore.
- - Save the last valid IP to avoid re-entering it after exiting the app.
 
 ## Releases
 
