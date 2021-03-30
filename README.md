@@ -17,7 +17,21 @@ To maximise the compatibility between devices, I started the project on a web ap
 ## Start the program
 
 #### Windows
-On Windows you can use the easy way.
+
+
+On Windows you can use two easy ways.
+
+##### CSharp
+
+Just go to the release section, download the last zip with "csharp" in the name,
+and run it as admin, you will have some IP showed up, take the appropried one,
+and insert it in your watch. Click on "Start Server" and start on your watch and
+you will get data into your computer.
+
+The output file `hr.txt` is in the `www` folder where the executable is.
+
+##### Python
+
 
 Download the program in the release section, to be sure, put the program in is own folder
 and double click on it, you will see your IP and Port to enter in the wearable app.
