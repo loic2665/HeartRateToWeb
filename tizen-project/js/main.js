@@ -10,8 +10,8 @@ window.onload = function () {
 	for(var i = 0; i < privileges.length; i = i + 1){
 		tizen.ppm.requestPermission(privileges[i], function(){
 			// cool continue
-			alert("granted");
 		}, function(){
+			alert("You must grant this privilege, otherwise the app won't work.");
 			tizen.application.getCurrentApplication().exit();
 		});
 	}
