@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/HeartRateToWeb" version="1.0.0" viewmodes="maximized">
-    <tizen:application id="tUhSWQRbmv.HeartRateToWeb" package="tUhSWQRbmv" required_version="2.3.2"/>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/HeartRateToWeb" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="tUhSWQRbmv.HeartRateToWeb" package="tUhSWQRbmv" required_version="4.0"/>
+    <tizen:background-category value="iot-communication"/>
+    <tizen:background-category value="background-network"/>
+    <tizen:background-category value="sensor"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
+    <feature name="http://tizen.org/feature/humanactivitymonitor"/>
+    <feature name="http://tizen.org/feature/network.internet"/>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor"/>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor.led_green"/>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor.led_ir"/>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor.led_red"/>
     <icon src="logo app.png"/>
     <name>HeartRateToWeb</name>
+    <preference name="lastIP" value="" readonly="false"/>
+    <preference name="lastPort" value="" readonly="false"/>
+    <preference name="lastDelay" value="" readonly="false"/>
+    <tizen:privilege name="http://tizen.org/privilege/unlimitedstorage"/>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <tizen:privilege name="http://tizen.org/privilege/power"/>
     <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    <tizen:privilege name="http://tizen.org/privilege/content.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/content.write"/>
     <tizen:profile name="wearable"/>
     <tizen:setting background-support="enable" encryption="disable" hwkey-event="enable"/>
 </widget>

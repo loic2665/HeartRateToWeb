@@ -1,43 +1,69 @@
-* {
-    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+html, body{
+    margin:0;
+      padding:0;
+      height:auto;
+      border:none;
+      
 }
 
-body {
-    margin: 0px auto;
-    background-color:black;
+body{
+	  padding-top: 30%;
+	  padding-bottom: 30%;
+      background-color: #3D8EB9;
+      text-align: center;
+      vertical-align: middle;
 }
 
-
-
-
-.content_text {
-	font-weight:bold;
-	font-size:2em;
-	color:#fff;
+#welcome_screen > img{
+	width: 60px;
+	height: auto;
 }
 
-div > h4, div > h2{
-	color: white;
-}
-
-
-div{
-	margin: auto;
-	width: 75%;
-	text-align: center;
-}
-div > button{
-	margin: auto;
-	padding: 30px; 
+#ip_screen, #delay_screen, #info_screen{
+	
+	display: none;
 	
 }
 
-
-
-div > input{
-	width: 75%
+#delay_screen{
+	height: auto;
 }
 
-.status{
+
+
+.screen > button {
+	width: 150px;
+	height: 50px;
+	margin: 15px;
+	font-size: 24px;
+	display: inline-block;
+}
+
+.screen > h1, .screen > p{
+	font-family: Calibri;
 	color: white;
+}
+
+.screen > p{
+	font-size: 22px;
+}
+
+.screen > input {
+	width: 80%;
+	height: 30px;
+	font-size: 20px;
+	border: 0;
+}
+
+.screen > button {
+	background-color: #000000;
+	font-family: Calibri;
+	border: 0;
+	border-radius: 15px;
+	text-align: center;
+	color: white;
+}
+
+#info_screen > button{
+	background-color: #b85151;
 }

@@ -1,0 +1,1 @@
+window.onload=function(){document.addEventListener("tizenhwkey",function(a){if(a.keyName=="back"){try{tizen.application.getCurrentApplication().exit();}catch(b){}}});};

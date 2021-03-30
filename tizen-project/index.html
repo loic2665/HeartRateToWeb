@@ -12,26 +12,55 @@
 </head>
 
 <body>
-  <div>
-  	<h2>HeartRateToWeb</h2>
-  	<hr />
-  	<h4>Machine IP :</h4>
-  	<input type="text" id="HR_IP_HOST" placeholder="IP HOST" value="192.168.x.x">
-  	<h4>Machine Port :</h4>
-  	<input type="text" id="HR_PORT_HOST" placeholder="IP PORT (def. 6547)" value="6547">
-  	<h4>Delay in milliseconds :</h4>
-  	<input type="number" min="100" step="1" id="HR_DELAY" placeholder="delay" value="500">
-	<hr />
-	<button id="HR_BUTTON">START</button>
-	<hr/>
-	<div class="status">
-		<p id="HR_TEXT">BPM HERE</p>
-  		<span id="HR_STATUS">OFF</span> - <span id="HR_LAST_UPDATE">last update</span>
-  		<br />
-  		<span id="HR_ERROR" style="color: red;"></span>
-  		<br />
+
+	<div class="screen" id="welcome_screen">
+		<img src="./logo app.png" alt="logo app" class="logo"/>
+		<h1 class="title">HeartRateToWeb</h1>
+		<p>Welcome to HeartRateToWeb the first app that send your heart-rate
+		to your computer with no third-party server, it works without internet !</p>
+		<p>Press the button to continue</p>
+		<button id="btn_ip_screen">Continue</button>
 	</div>
-  </div>
+	
+	<div class="screen" id="ip_screen">
+		<h1 class="title">Setting IP and port machine</h1>
+		<p>Please set the IP:PORT of the machine you want to communicate to :</p>
+		<p>IP, URL, DNS domains are allowed.</p>
+		<input type="text" id="HR_URL" value="http://192.168.43.189:6547"/>
+		<br/>
+		<button id="btn_ip_delay">Continue</button>
+	</div>
+	
+	<div class="screen" id="delay_screen">
+	
+		<h1>Configuring delay</h1>
+		<p>Please use a delay between 200 and 10000 ms, please make sure that your
+		watch is configured to stay awake or allow app to run longer while in sleep.</p>
+		
+		<p>Due to the watch power limitation, the watch send informations less frequently
+		whhile the screen is off.</p>
+		
+		<p>If you set a delay of 500 ms, expect a battery drain (100 to 15) in 6 hours.</p>
+		
+		<input type="number" id="HR_DELAY" min="200" max="10000" step="10" value="1000" />
+		<br />
+		<button id="btn_start_send">Start</button>
+	
+	</div>
+	
+	<div class="screen" id="info_screen">
+	
+		<h1>Sending data</h1>
+		<p>The watch is senting data to <span id="HR_INFO_HOST">{url}</span> <br/>
+		with a delay of <span id="HR_INFO_DELAY">{ms}</span> ms</p>
+		<p>BPM is : <b><span id="HR_INFO_BPM">{last_bpm}</span></b> BPM</p>
+		<p>Last successful sent info at <span id="HR_DATE">{date}</span></p>
+		<p>Last error is (if any) : <span style="color: red;" id="HR_ERROR">No error.</span></p>
+		<br />
+		<button id="btn_stop_send">Stop</button>
+	
+	</div>
+	
   
 </body>
 
