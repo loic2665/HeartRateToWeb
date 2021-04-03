@@ -2,9 +2,9 @@
 window.onload = function () {
     // TODO:: Do your initialization job
 
-	tizen.power.request("CPU", "CPU_AWAKE");
 
 	var privileges = ["http://tizen.org/privilege/healthinfo",
+	                  "http://tizen.org/privilege/power",
 	                  "http://tizen.org/privilege/mediastorage"];
 
 	for(var i = 0; i < privileges.length; i = i + 1){
@@ -16,9 +16,9 @@ window.onload = function () {
 		});
 	}
 	
-	
+
     // add eventListener for tizenhwkey
-    document.addEventListener('tizenhwkey', function(e) {
+    document.addEventListener('tizenhwkey', function(e) { 
     	
         if(e.keyName == "back"){
         	try {

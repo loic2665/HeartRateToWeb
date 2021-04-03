@@ -7,8 +7,6 @@ var delay = 500;
 var HR = -1;
 
 
-
-
 $("#btn_ip_screen").on("click", function(){
 	
 	if(localStorage.getItem("host") !== null){
@@ -55,11 +53,18 @@ $("#btn_start_send").on("click", function(){
 	
 	start();
 
+	tizen.power.release('SCREEN');
+	tizen.power.request("SCREEN", "SCREEN_NORMAL");
+	tizen.power.setScreenBrightness(0);
+
 });
 
 $("#btn_stop_send").on("click", function(){
 
 	end();
+
+	tizen.power.release('SCREEN');
+	tizen.power.restoreScreenBrightness();
 	
 	$("body").css("background-color", "#3D8EB9");
 	$("#info_screen").css("display", "none");
