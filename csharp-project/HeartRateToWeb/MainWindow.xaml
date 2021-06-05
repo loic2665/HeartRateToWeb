@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HeartRateToWeb"
         mc:Ignorable="d"
         Title="HeartRateToWeb" Height="338" Width="615"
-        ResizeMode="NoResize">
+        ResizeMode="CanMinimize">
     <Grid Name="Receiver">
 
         <Grid.RowDefinitions>
