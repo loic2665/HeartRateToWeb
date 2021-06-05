@@ -80,7 +80,7 @@ Now for the othher watches :
  - Samsung Galaxy Watch Active : Yes. (confirmed by others)
  - Samsung Galaxy Watch Active 2 : Yes. (confirmed by others)
  - Samsung Gear Sport : Yes. (confirmed by @ikemarx)
- - Samsung Gear S3 : Must be compatible too.
+ - Samsung Gear S3 : Yes (confirmed by @barkermn01)
  - Samsung Gear S2 : Must be compatible too.
  - Samsung Gear S : I don't know at all.
  - Samsung Galaxy Fit(e) : Since there is no app store, no.

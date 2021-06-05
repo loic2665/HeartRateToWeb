@@ -7,51 +7,52 @@
 <body>
 
 <div class="text">
-    <span id="HR_NUMBER">000</span> - <span id="HR_BPM_WORD">bpm</span> -
-    <span id="HR_LAST_UPDATE">00:00:00</span> - <span id="HR_STATE"></span> - <span>loic2665</span>
+    <div id="heart"></div><span id="HR_NUMBER">000</span><span id="HR_BPM_WORD">bpm</span>
 </div>
 <div>
-		<progress id="HR_PROGRESS" value="50" max="180"></progress>
+		<progress id="HR_PROGRESS" value="50" min="20" max="170"></progress>
 </div>
 
     <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
 	<script>
 
         function updateTextStyle(result) {
-
-            if (result < 100) {
+			$("#HR_BPM_WORD").css({"display":"inline"});
+			$("#heart").css({"display":"block"});
+			
+			if(result < 70){
+				$("#heart").css({"animation":"heartbeat 1.5s infinite"});
+			}
+			if(result > 70 && result < 100){
+				$("#heart").css({"animation":"heartbeat 1s infinite"});
+			}
+			if(result > 100 && result < 130){
+				$("#heart").css({"animation":"heartbeat 0.7s infinite"});
+			}
+			if(result > 130 && result < 170){
+				$("#heart").css({"animation":"heartbeat 0.5s infinite"});
+			}
+			if(result > 170){
+				$("#heart").css({"animation":"heartbeat 0.2s infinite"});
+			}
+			if (result < 10) {
+				result = "Not Available";
+                $("#heart").css({"display":"none"});
+				$("#HR_BPM_WORD").css({"display":"none"});
+            }
+			if (result < 100) {
                 result = "0" + result;
             }
             $("#HR_NUMBER").text(result);
 
 
-            $("#HR_LAST_UPDATE").text(new Date().toLocaleTimeString());
+            //$("#HR_LAST_UPDATE").text(new Date().toLocaleTimeString());
 
             var STATUS = "";
 
-            if(result <= 0){
+            /*if(result <= 0){
                 STATUS = "Problème de lecture ?";
-            }else if(result > 0 && result <= 65){
-                STATUS = "Boh, relax !";
-            }else if(result > 65 && result <= 80){
-                STATUS = "On est bien !";
-            }else if(result > 80 && result <= 90){
-                STATUS = "On bouge un peu... !";
-            }else if(result > 90 && result <= 100){
-                STATUS = "On bouge !";
-            }else if(result > 100 && result <= 110){
-                STATUS = "On bouge bien là !";
-            }else if(result > 110 && result <= 130){
-                STATUS = "On bouge bien fort là !";
-            }else if(result > 130 && result <= 140){
-                STATUS = "Wow ! Sympa l'activité !";
-            }else if(result > 140 && result <= 160){
-                STATUS = "Ca commence à faire beaucoup là...";
-            }else if(result > 160 && result <= 180){
-                STATUS = "Ouch, pas bon signe ça...";
-            }else{
-                STATUS = "Appellez une ambulance svp";
-            }
+            }*/
 
             $("#HR_STATE").text(STATUS);
 
@@ -69,7 +70,7 @@
 			$.ajax({
 				type: "GET",
                 crossDomain: true,
-				url: "http://localhost:6547/hr",
+				url: "http://localhost:6547/hr.txt",
 				success: updateProgessBar,
                 async: false
 			});

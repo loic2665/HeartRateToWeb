@@ -1,36 +1,89 @@
 
 progress{
-	width: 1200px;
+	width: 100%;
 	height: 50px;
 }
-.text{
-	color: #acacac;
-	font-family: Calibri, sans-serif;
-}
-#HR_NUMBER, #HR_BPM_WORD{
-	font-size: 80px;
-}
-#HR_LAST_UPDATE{
-	font-size: 50px;
-}
-#HR_STATE{
-	font-size: 60px;
+.text {
+    position: absolute;
+    font-size: 45px;
+    margin-top: -3px;
+    margin-left: 17px;
+    color: red;
+    text-shadow: 2px 2px #ecb4b4;
+    font-family: 'Legend M54';
+    width: 100%;
+    text-align: center;
 }
 
 progress {
 	border: 0;
 	background: #eee;
-	border-radius: 100px;
 	appearance: none;
 }
 
 progress::-webkit-progress-bar {
-	background: #eee;
-	border-radius: 100px;
+	background: rgba(0,0,0,0);
+	border-radius: 10px;
+	box-shadow:inset 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
 progress::-webkit-progress-value {
-	border-radius: 100px 0 0 100px;
+	border-radius: 10px 10px 10px 10px;
 	/*background-color: #d93232;*/
-	background-color: green;
+	background: linear-gradient(to left, red 0%, yellow 50%, green 100%) left/var(--p,100%) fixed;
+	box-shadow:inset 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale( .75);
+  }
+  20% {
+    transform: scale( 1);
+  }
+  40% {
+    transform: scale( .75);
+  }
+  60% {
+    transform: scale( 1);
+  }
+  80% {
+    transform: scale( .75);
+  }
+  100% {
+    transform: scale( .75);
+  }
+}
+
+#heart {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  animation: heartbeat 1s infinite;
+  zoom: 0.5;
+  left: 50%;
+  right: 50%;
+  margin-left: -258px;
+  margin-top: 15px;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: red;
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
 }

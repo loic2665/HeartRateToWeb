@@ -212,10 +212,10 @@ namespace HRServer
         }
 
         public String HandleGETRequest(String page) {
-
             TextReader tr = new StreamReader(page);
-            return tr.ReadToEnd();  //getting the page's content
-
+            String content = tr.ReadToEnd();  //getting the page's content
+            tr.Close();
+            return content;
         }
 
         public String HandlePOSTRequest(HttpListenerContext context)
@@ -232,6 +232,7 @@ namespace HRServer
             using (StreamWriter file = new StreamWriter(@"./www/hr.txt", false))
             {
                 file.WriteLine(hr);
+                file.Close();
             }
 
             return "OK"; // answer provided to the smart watch for an "ack"
