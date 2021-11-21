@@ -74,8 +74,9 @@ How ?
 For now, I know for sure the Samsung Galaxy Watch is compatible, I own one
 and it works fine.
 
-Now for the othher watches : 
+Now for the other watches : 
 
+ - Samsung Galaxy Watch 3 : Yes. (confirmed by others)
  - Samsung Galaxy Watch : Yes.
  - Samsung Galaxy Watch Active : Yes. (confirmed by others)
  - Samsung Galaxy Watch Active 2 : Yes. (confirmed by others)
